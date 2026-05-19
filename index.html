@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahçecik Enderun Lise Kabul Sınavı</title>
+    <!-- Modern Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg: #f0f9ff;
+            --primary-color: #0284c7;
+            --primary-light: #38bdf8;
+            --secondary-color: #0f172a;
+            --accent-color: #f97316;
+            --accent-hover: #ea580c;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --glass-border: rgba(255, 255, 255, 0.8);
+            --glass-shadow: 0 15px 35px rgba(2, 132, 199, 0.08);
+
+            /* ===== KUTU RENKLERİNİ VE ÇERÇEVELERİNİ BURADAN DEĞİŞTİREBİLİRSİNİZ ===== */
+            --box-left-start: #0f766e;
+            --box-left-end: #1f712b;
+            --box-left-border: rgba(52, 211, 153, 0.5);
+
+            --box-middle-start: #26c13e;
+            --box-middle-end: #182010;
+            --box-middle-border: rgba(250, 204, 21, 0.6);
+
+            --box-right-start: #010203;
+            --box-right-end: #085e81;
+            --box-right-border: rgba(56, 189, 248, 0.5);
+
+            /* ===== LOGO BOYUTLARINI BURADAN DEĞİŞTİREBİLİRSİNİZ ===== */
+            --box-logo-size: 180px;
+            /* Sol ve sağ kutulardaki logoların boyutu */
+            --middle-logo-size: 250px;
+            /* Ortadaki kutuda bulunan logonun boyutu */
+
+            /* ===== KUTU YAZI RENKLERİNİ BURADAN DEĞİŞTİREBİLİRSİNİZ ===== */
+            --box-left-text: #f8fafc;
+            --box-middle-text: #ffffff;
+            --box-right-text: #f8fafc;
+            /* ======================================================== */
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            font-family: 'Nunito', sans-serif;
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('Logo.png');
+            background-size: 300px;
+            background-repeat: repeat;
+            opacity: 0.04;
+            filter: grayscale(0%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .fun-font {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            color: var(--secondary-color);
+            letter-spacing: -0.02em;
+        }
+
+        /* ================= NAVBAR ================= */
+        .custom-navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(2, 132, 199, 0.1);
+            padding: 15px 0;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.03);
+        }
+
+        .logo-box img {
+            height: 180px;
+            object-fit: contain;
+            margin-top: -20px;
+            margin-bottom: -20px;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+        }
+
+        .nav-link {
+            font-weight: 700;
+            color: var(--text-main) !important;
+            font-size: 1rem;
+            margin: 0 12px;
+            transition: all 0.3s;
+            border-radius: 20px;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+            transform: translateY(-2px);
+        }
+
+        .btn-davet {
+            background: #e0f2fe;
+            color: var(--primary-color) !important;
+            border-radius: 30px;
+            padding: 10px 25px !important;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-davet:hover {
+            background: var(--primary-color);
+            color: white !important;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(2, 132, 199, 0.2);
+        }
+
+        .btn-basvur-outline {
+            background: var(--accent-color);
+            color: white !important;
+            border-radius: 30px;
+            padding: 10px 30px !important;
+            font-weight: 800;
+            margin-left: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn-basvur-outline:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(249, 115, 22, 0.4);
+        }
+
+        /* ================= HERO SECTION ================= */
+        .hero-section {
+            position: relative;
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, rgba(224, 242, 254, 0.85) 0%, rgba(186, 230, 253, 0.85) 100%);
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(2, 132, 199, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.08) 0%, transparent 40%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+            color: var(--secondary-color);
+        }
+
+        .hero-title span {
+            color: var(--primary-color);
+            display: inline-block;
+            position: relative;
+        }
+
+        .hero-title span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: rgba(249, 115, 22, 0.3);
+            z-index: -1;
+            border-radius: 10px;
+            transform: rotate(-1deg);
+        }
+
+        .hero-subtitle {
+            display: inline-block;
+            padding: 10px 25px;
+            background: white;
+            color: var(--accent-color);
+            border-radius: 40px;
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            border: 2px solid rgba(249, 115, 22, 0.1);
+        }
+
+        .hero-classes {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: var(--text-main);
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            max-width: 95%;
+        }
+
+        .btn-hero {
+            background: var(--accent-color);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.3rem;
+            padding: 20px 50px;
+            border-radius: 50px;
+            /* Pill shape */
+            border: none;
+            box-shadow: 0 12px 30px rgba(249, 115, 22, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            z-index: 999;
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.5);
+            color: white;
+            background: var(--accent-hover);
+        }
+
+        .hero-image-container {
+            position: relative;
+            background: white;
+            border-radius: 50%;
+            border: 8px solid rgba(255, 255, 255, 0.8);
+            padding: 20px 20px 0;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(2, 132, 199, 0.2);
+            max-width: 450px;
+            margin: 0 auto;
+            z-index: 2;
+            pointer-events: none;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .hero-character-img {
+            width: 90%;
+            height: auto;
+            display: block;
+            margin-bottom: -10px;
+            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.15));
+        }
+
+        /* ================= INFO BLOCKS ================= */
+        .info-section {
+            padding: 100px 0;
+            position: relative;
+            z-index: 5;
+        }
+
+        .info-block {
+            background: var(--card-bg);
+            border-radius: 40px;
+            padding: 45px 35px;
+            height: 100%;
+            text-align: center;
+            box-shadow: var(--glass-shadow);
+            border: 2px solid white;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .info-block:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(2, 132, 199, 0.15);
+        }
+
+        .info-img {
+            max-width: var(--box-logo-size);
+            /* Logoların boyutu yukarıdaki değişkenden kontrol ediliyor */
+            margin-bottom: 25px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .info-block:hover .info-img {
+            transform: scale(1.2) translateY(-10px);
+        }
+
+        .info-title {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .info-desc {
+            color: var(--text-main);
+            font-size: 1.05rem;
+            font-weight: 600;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Kutulara Özel Arkaplan Sınıfları */
+        .box-left {
+            background: linear-gradient(135deg, var(--box-left-start) 0%, var(--box-left-end) 100%) !important;
+            border: 3px solid var(--box-left-border) !important;
+        }
+
+        .box-left .info-title,
+        .box-left .info-desc {
+            color: var(--box-left-text) !important;
+        }
+
+        .box-right {
+            background: linear-gradient(135deg, var(--box-right-start) 0%, var(--box-right-end) 100%) !important;
+            border: 3px solid var(--box-right-border) !important;
+        }
+
+        .box-right .info-title,
+        .box-right .info-desc {
+            color: var(--box-right-text) !important;
+        }
+
+        /* Middle Big Card (Prize) */
+        .prize-card {
+            background: linear-gradient(135deg, var(--box-middle-start) 0%, var(--box-middle-end) 100%);
+            border: 4px solid var(--box-middle-border);
+            box-shadow: 0 25px 50px rgba(2, 132, 199, 0.4);
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        .prize-card:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 35px 60px rgba(2, 132, 199, 0.5);
+        }
+
+        .prize-card .big-white-title {
+            color: var(--box-middle-text) !important;
+            font-size: 2.2rem !important;
+        }
+
+        .prize-card .prize-slogan {
+            color: var(--box-middle-text) !important;
+        }
+
+        /* ================= FORM SECTION ================= */
+        .form-section {
+            padding: 80px 0;
+            position: relative;
+            background: transparent;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 50px;
+            padding: 60px;
+            box-shadow: 0 30px 60px rgba(2, 132, 199, 0.1);
+            border: 4px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header h2 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .form-header p {
+            color: var(--text-main);
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .form-group-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px dashed #bae6fd;
+            display: flex;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group-title i {
+            color: var(--accent-color);
+            margin-right: 12px;
+            font-size: 1.4rem;
+        }
+
+        .form-label {
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        .form-control,
+        .form-select {
+            padding: 16px 20px;
+            border-radius: 20px;
+            border: 2px solid #e2e8f0;
+            background-color: #f8fafc;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-main);
+            transition: all 0.3s;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 6px rgba(2, 132, 199, 0.15);
+            background-color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-submit-form {
+            background: var(--accent-color);
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
+            padding: 22px;
+            border-radius: 30px;
+            border: none;
+            width: 100%;
+            margin-top: 30px;
+            box-shadow: 0 15px 30px rgba(249, 115, 22, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-submit-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(249, 115, 22, 0.4);
+            color: white;
+            background: var(--accent-hover);
+        }
+
+        #successMessage,
+        #errorMessage {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 20px;
+            font-weight: 800;
+            text-align: center;
+            font-size: 1.2rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #successMessage {
+            background-color: #f0fdf4;
+            color: #16a34a;
+            border: 2px solid #bbf7d0;
+        }
+
+        #errorMessage {
+            background-color: #fef2f2;
+            color: #dc2626;
+            border: 2px solid #fecaca;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 991px) {
+            .hero-title {
+                font-size: 3.2rem;
+            }
+
+            .hero-image-container {
+                margin-top: 40px;
+                max-width: 320px;
+            }
+
+            .form-container {
+                padding: 40px 25px;
+                border-radius: 40px;
+            }
+
+            .prize-card {
+                transform: scale(1);
+            }
+
+            .prize-card:hover {
+                transform: translateY(-10px);
+            }
+
+            .prize-card .big-white-title {
+                font-size: 2rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.85rem;
+            }
+
+            .hero-classes {
+                font-size: 1.1rem;
+                max-width: 100%;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+
+            .form-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
+        <div class="container">
+            <a class="logo-box" href="#">
+                <img src="Logo.png" alt="Bahçecik Enderun Logo"
+                    onerror="this.src='https://via.placeholder.com/150x50?text=Logo'">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-davet"
+                            href="https://wa.me/905393495532?text=Enderun%20Hakk%C4%B1nda%20bilgi%20Almak%20%C4%B0stiyorum"
+                            target="_blank"><i class="fab fa-whatsapp me-1"></i> Detaylı Bilgi İçin Bize Ulaşınız</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-basvur-outline" href="#basvuru-alani">HEMEN BAŞVUR</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-end flex-column-reverse flex-lg-row">
+                <!-- Sol Taraf Karakter -->
+                <div class="col-lg-6 mt-5 mt-lg-0 text-center">
+                    <div class="hero-image-container mx-auto mx-lg-0">
+                        <img src="Cocuk.png" alt="Öğrenci" class="hero-character-img"
+                            onerror="this.src='https://cdn-icons-png.flaticon.com/512/3253/3253018.png'">
+                    </div>
+                </div>
+                <!-- Sağ Taraf Yazılar -->
+                <div class="col-lg-6 text-lg-start text-center pb-lg-5 mb-lg-5">
+                    <div class="hero-subtitle">Enderun'lu Olma Yolunda İlk Adım</div>
+                    <h1 class="hero-title">Bahçecik Enderun Lise<br><span>Online Başvuru</span></h1>
+                    <div class="hero-classes">Liseli öğrenciler için sınırlı kontenjan ile açılan
+                        bu sürece online başvuru yaparak dahil ol! Enderun'lu olmak için yarışa katıl.</div>
+                    <a href="#basvuru-alani" class="btn-hero mt-3">Hemen Başvur</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO BLOCKS SECTION -->
+    <section id="features" class="info-section section-padding">
+        <div class="container">
+
+            <div class="row g-4 align-items-stretch">
+                <!-- Sol Kolon: Detaylı Analiz & Etüt -->
+                <div class="col-lg-4 d-flex flex-column gap-4">
+                    <div class="info-block box-left flex-grow-1 d-flex flex-column justify-content-center">
+                        <h3 class="info-title" style="font-weight: 900; font-size: 2rem;">MÜRACAT</h3>
+                        <img src="Başvuru.png" alt="Başvuru" class="info-img mx-auto"
+                            onerror="this.src='https://cdn-icons-png.flaticon.com/512/1043/1043517.png'">
+                        <p class="info-desc">Enderun'lu olmamanın ilk adımı Online Başvuru yapmaktır.
+                            17 Temmuz 2026 'a kadar internet üzerinden online olarak başvurunu yapabilirsin.</p>
+                    </div>
+                </div>
+
+                <!-- Orta Kolon: Büyük Ödül -->
+                <div class="col-lg-4 d-flex position-relative" style="z-index: 2;">
+                    <div class="info-block prize-card flex-grow-1 d-flex flex-column justify-content-center">
+                        <h2 class="big-white-title" style="font-weight: 900; font-size: 2.5rem;">MÜLAKAT</h2>
+                        <div class="prize-showcase my-auto">
+                            <img src="mülakat.png" alt="Mülakat Süreci"
+                                style="max-width: 100%; height: auto; max-height: var(--middle-logo-size); filter: drop-shadow(0 15px 30px rgba(0,0,0,0.15)); transition: transform 0.4s ease;"
+                                onerror="this.src='https://cdn-icons-png.flaticon.com/512/3112/3112946.png'"
+                                onmouseover="this.style.transform='scale(1.1)'"
+                                onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <p class="info-desc prize-slogan"
+                            style="font-size: 1.4rem; font-weight: 800; line-height: 1.4;">Sınıfların kontenjan adedince adaylar
+                            mülakata davet edilir.</p>
+                    </div>
+                </div>
+
+                <!-- Sağ Kolon: Sınav Takvimi & Yüzyüze Deneyim -->
+                <div class="col-lg-4 d-flex flex-column gap-4">
+                    <div class="info-block box-right flex-grow-1 d-flex flex-column justify-content-center">
+                        <h3 class="info-title" style="font-weight: 900; font-size: 2rem;">TEDRİSAT</h3>
+                        <img src="Dik Logo.png" alt="Tedrisat" class="info-img mx-auto"
+                            onerror="this.src='https://cdn-icons-png.flaticon.com/512/2693/2693507.png'">
+                        <p class="info-desc">Mülakat sonuçlarının ardından kesin kayıt hakkı kazanan öğrenciler 10
+                            Ağustos 2026 tarihinde tedrisat (Eğitim-Öğretim) dönemine başlayacaktır.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPLICATION FORM SECTION -->
+    <section id="basvuru-alani" class="form-section section-padding">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Sınav Başvuru Formu</h2>
+                    <p>Lütfen aşağıdaki bilgileri eksiksiz doldurarak başvurunuzu tamamlayın.</p>
+                </div>
+
+                <!-- Google Apps Script Bağlantısı Kurulacak Form -->
+                <form id="googleSheetForm" name="google-sheet">
+
+                    <div class="form-group-title"><i class="fas fa-graduation-cap me-2"></i> ÖĞRENCİ BİLGİLERİ</div>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <label class="form-label">Adı Soyadı</label>
+                            <input type="text" name="adSoyad" class="form-control" placeholder="Örn: Hasan Yılmaz"
+                                required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">TC Kimlik Numarası</label>
+                            <input type="text" name="tcKimlikNo" class="form-control" placeholder="Örn: 12345678901"
+                                required>
+                            <small class="text-muted d-block mt-1" style="font-weight: 500;">LGS Sonucu ve Okul puanı
+                                için gereklidir.</small>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Doğum Tarihi</label>
+                            <input type="date" name="dogumTarihi" class="form-control" required>
+                            <small class="text-muted d-block mt-1" style="font-weight: 500;">Gün / Ay / Yıl olarak
+                                seçiniz.</small>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Okuduğu Okul</label>
+                            <input type="text" name="okulAdi" class="form-control"
+                                placeholder="Okulunuzun adını yazınız" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Sınıf Numarası</label>
+                            <input type="number" name="sinifNumarasi" class="form-control" placeholder="Örn: 1234"
+                                required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Sınıf Şubesi</label>
+                            <input type="text" name="sinifSubesi" class="form-control" placeholder="Örn: A, B, C"
+                                required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">2026-2027 Yılında Bulunacağı Sınıf (Geçeceği Sınıf)</label>
+                            <select name="sinif" id="sinifSelect" class="form-select" required>
+                                <option value="" selected disabled>- Seçiniz -</option>
+                                <option value="9">9. Sınıf</option>
+                                <option value="10">10. Sınıf</option>
+                                <option value="11">11. Sınıf</option>
+                                <option value="12">12. Sınıf</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6" id="alanContainer" style="display: none;">
+                            <label class="form-label">Alanı</label>
+                            <select name="alani" id="alanSelect" class="form-select">
+                                <option value="" selected disabled>- Seçiniz -</option>
+                                <option value="Sayısal">Sayısal</option>
+                                <option value="Eşit Ağırlık">Eşit Ağırlık</option>
+                                <option value="Sözel">Sözel</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Geldiği Yurt</label>
+                            <input type="text" name="geldigiYurt" class="form-control"
+                                placeholder="Geldiğiniz yurt (Varsa)">
+                        </div>
+                    </div>
+
+                    <div class="form-group-title"><i class="fas fa-user-friends me-2"></i> VELİ BİLGİLERİ</div>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <label class="form-label">Veli Adı Soyadı</label>
+                            <input type="text" name="veliAdSoyad" class="form-control" placeholder="Örn: Mehmet Yılmaz"
+                                required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Yakınlık Derecesi</label>
+                            <input type="text" name="yakinlikDerecesi" class="form-control"
+                                placeholder="Örn: Anne, Baba, Amca" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">İrtibat Numarası</label>
+                            <input type="tel" name="telefon" class="form-control" placeholder="5xx xxx xxxx"
+                                pattern="[0-9]{10}" required title="Başında 0 olmadan 10 hane girin">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Veli Mesleği</label>
+                            <input type="text" name="veliMeslegi" class="form-control"
+                                placeholder="Örn: Öğretmen, Esnaf" required>
+                        </div>
+                    </div>
+
+                    <!-- AJAX Form Butonu -->
+                    <button type="submit" class="btn-submit-form" id="submitBtn">Başvuruyu Tamamla 🚀</button>
+
+                    <!-- Sonuç Mesajları -->
+                    <div id="successMessage"><i class="fas fa-check-circle me-2"></i> Başvurunuz başarıyla kaydedildi!
+                        Sizinle iletişime geçeceğiz..</div>
+                    <div id="errorMessage"><i class="fas fa-times-circle me-2"></i> Bir hata oluştu. Lütfen tekrar
+                        deneyin.</div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- E-Tablo Gönderimi İçin AJAX Yapısı -->
+    <script>
+        // =========================================================================
+        // ÖNEMLİ: Kendi Google Web App URL'nizi aşağıdaki değişken içine yapıştırın!
+        // =========================================================================
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyDNuOBfe542VlRu5qnf9hmhaRPTIhGYir8PL1BZk5NEXTzKZx5GO3KE2zL1P9pd7M9/exec';
+
+        const form = document.forms['google-sheet'];
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault(); // Sayfanın yenilenmesini engeller!
+
+            // Kullanıcıya yükleniyor durumu gösteriyoruz
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> GÖNDERİLİYOR...';
+            submitBtn.disabled = true;
+            successMessage.style.display = "none";
+            errorMessage.style.display = "none";
+
+            // Disabled alanlar FormData'ya dahil edilmez; geçici olarak açıp veriyi topluyoruz
+            const disabledFields = form.querySelectorAll('[disabled]');
+            disabledFields.forEach(el => el.removeAttribute('disabled'));
+            const formData = new FormData(form);
+            disabledFields.forEach(el => el.setAttribute('disabled', 'disabled'));
+
+            // Form verilerini gizlice Google script URL'sine yolluyoruz (URLSearchParams Google için en güvenlisidir)
+            fetch(scriptURL, {
+                method: 'POST',
+                body: new URLSearchParams(formData),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            })
+                .then(response => {
+                    // İşlem tamamsa yeşil ekran çıkartılır ve form silinir
+                    successMessage.style.display = "block";
+                    form.reset();
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                })
+                .catch(error => {
+                    // Hızlı çalışması ve hata olursa kırmızı ekran göstermesi
+                    console.error('Hata!', error.message);
+                    errorMessage.style.display = "block";
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+        });
+
+        // 11. Sınıf seçilirse "Alanı" açılır menüsünü göster
+        document.getElementById('sinifSelect').addEventListener('change', function () {
+            const alanContainer = document.getElementById('alanContainer');
+            const alanSelect = document.getElementById('alanSelect');
+            if (this.value === '11') {
+                alanContainer.style.display = 'block';
+                alanSelect.setAttribute('required', 'required');
+            } else {
+                alanContainer.style.display = 'none';
+                alanSelect.removeAttribute('required');
+                alanSelect.value = '';
+            }
+        });
+    </script>
+
+    <!-- Dinamik Kurum Filtreleme Sistemi -->
+    <script>
+        const kurumData = {
+            "Erkek": {
+                "TRABZON": [
+                    "AHMEDİYE PROJE", "ARSİN PROJE", "BAŞDURAK", "ÇAYKARA", "HAYRAT", "OF", "ÖRNEKKÖY", "SÜRMENE", "AKÇAABAT PROJE", "ÇAĞLAYAN", "DÜZKÖY", "ERDOĞDU PROJE", "FATİH EV", "İSABET LÜTFÜ YAZICIOĞLU PROJE", "KALKINMA PROJE", "MAÇKA", "PAZARCIK", "PELİTLİ", "YENİKÖY", "YILDIZLI", "YALINCAK", "YOMRA", "BAHÇECİK ENDERUN", "ORTAHİSAR", "ÇARŞIBAŞI", "TONYA", "VAKFIKEBİR", "ŞALPAZARI"
+                ],
+                "GİRESUN": [
+                    "ÇANAKÇI", "ESPİYE", "EYNESİL", "GÖRELE", "GÜCE", "KOYUNHAMZA", "TİREBOLU PROJE", "YAĞLIDERE", "ALUCRA", "BULANCAK", "ÇAMOLUK", "DERELİ", "KIZILTAŞ", "OSMANİYE", "SEYYİD KAMİL PROJE", "ŞEBİNKARAHİSAR", "TEYYAREDÜZÜ"
+                ],
+                "GÜMÜŞHANE-BAYBURT": [
+                    "AYDINTEPE", "GÜMÜŞHANE", "KELKİT", "KÖSE", "MURADİYE-2", "ŞİRAN", "KÜRTÜN"
+                ]
+            },
+            "Kız": {
+                "TRABZON": [
+                    "ARAKLI KIZ", "ARSİN KIZ", "ÇAYKARA KIZ", "FERHAN SULTAN", "OF KIZ", "SÜRMENE KIZ", "AKÇAABAT KIZ", "GÜLBAHAR", "MAÇKA KIZ", "HAFİZE SULTAN"
+                ],
+                "GİRESUN": [
+                    "ESPİYE KIZ", "EYNESİL KIZ", "GÖRELE KIZ", "TİREBOLU KIZ", "TONYA KIZ", "YAĞLIDERE KIZ", "BOZBAĞ KIZ", "BULANCAK KIZ", "ÇAMOLUK KIZ", "DERELİ KIZ", "KEŞAP KIZ", "OSMANİYE KIZ", "YEŞİLVADİ KIZ"
+                ],
+                "GÜMÜŞHANE-BAYBURT": [
+                    "GÜMÜŞHANE KIZ", "KELKİT KIZ", "MÜŞERREF OZULU", "ŞİRAN KIZ"
+                ]
+            }
+        };
+
+        const cinsiyetSelect = document.querySelector('select[name="cinsiyet"]');
+        const mintikaSelect = document.getElementById('mintikaSelect');
+        const kurumSelect = document.getElementById('kurumSelect');
+
+        // İlçe → En Yakın Kurum eşleme tablosu
+        const yakinKurumData = {
+            // Trabzon
+            "Ortahisar": { "Erkek": "ORTAHİSAR", "Kız": "FERHAN SULTAN" },
+            "Akçaabat": { "Erkek": "AKÇAABAT PROJE", "Kız": "AKÇAABAT KIZ" },
+            "Yomra": { "Erkek": "YOMRA", "Kız": "HAFİZE SULTAN" },
+            "Arsin": { "Erkek": "ARSİN PROJE", "Kız": "ARSİN KIZ" },
+            "Araklı": { "Erkek": "ÖRNEKKÖY", "Kız": "ARAKLI KIZ" },
+            "Of": { "Erkek": "OF", "Kız": "OF KIZ" },
+            "Sürmene": { "Erkek": "SÜRMENE", "Kız": "SÜRMENE KIZ" },
+            "Vakfıkebir": { "Erkek": "VAKFIKEBİR", "Kız": "HAFİZE SULTAN" },
+            "Beşikdüzü": { "Erkek": "YENİKÖY", "Kız": "HAFİZE SULTAN" },
+            "Maçka": { "Erkek": "MAÇKA", "Kız": "MAÇKA KIZ" },
+            "Çaykara": { "Erkek": "ÇAYKARA", "Kız": "ÇAYKARA KIZ" },
+            "Tonya": { "Erkek": "TONYA", "Kız": "GÜLBAHAR" },
+            "Çarşıbaşı": { "Erkek": "ÇARŞIBAŞI", "Kız": "GÜLBAHAR" },
+            "Şalpazarı": { "Erkek": "ŞALPAZARI", "Kız": "GÜLBAHAR" },
+            "Düzköy": { "Erkek": "DÜZKÖY", "Kız": "GÜLBAHAR" },
+            "Hayrat": { "Erkek": "HAYRAT", "Kız": "GÜLBAHAR" },
+            // Giresun
+            "Giresun Merkez": { "Erkek": "TEYYAREDÜZÜ", "Kız": "YEŞİLVADİ KIZ" },
+            "Bulancak": { "Erkek": "BULANCAK", "Kız": "BULANCAK KIZ" },
+            "Görele": { "Erkek": "GÖRELE", "Kız": "GÖRELE KIZ" },
+            "Tirebolu": { "Erkek": "TİREBOLU PROJE", "Kız": "TİREBOLU KIZ" },
+            "Espiye": { "Erkek": "ESPİYE", "Kız": "ESPİYE KIZ" },
+            "Eynesil": { "Erkek": "EYNESİL", "Kız": "EYNESİL KIZ" },
+            "Keşap": { "Erkek": "KOYUNHAMZA", "Kız": "KEŞAP KIZ" },
+            "Dereli": { "Erkek": "DERELİ", "Kız": "DERELİ KIZ" },
+            "Yağlıdere": { "Erkek": "YAĞLIDERE", "Kız": "YAĞLIDERE KIZ" },
+            "Piraziz": { "Erkek": "BULANCAK", "Kız": "BOZBAĞ KIZ" },
+            "Şebinkarahisar": { "Erkek": "ŞEBİNKARAHİSAR", "Kız": "OSMANİYE KIZ" },
+            "Alucra": { "Erkek": "ALUCRA", "Kız": "OSMANİYE KIZ" },
+            "Çamoluk": { "Erkek": "ÇAMOLUK", "Kız": "ÇAMOLUK KIZ" },
+            "Doğankent": { "Erkek": "ÇANAKÇI", "Kız": "GÖRELE KIZ" },
+            "Güce": { "Erkek": "GÜCE", "Kız": "DERELİ KIZ" },
+            "Çanakçı": { "Erkek": "ÇANAKÇI", "Kız": "GÖRELE KIZ" },
+            // Gümüşhane
+            "Gümüşhane Merkez": { "Erkek": "GÜMÜŞHANE", "Kız": "GÜMÜŞHANE KIZ" },
+            "Kelkit": { "Erkek": "KELKİT", "Kız": "KELKİT KIZ" },
+            "Şiran": { "Erkek": "ŞİRAN", "Kız": "ŞİRAN KIZ" },
+            "Kürtün": { "Erkek": "KÜRTÜN", "Kız": "GÜMÜŞHANE KIZ" },
+            "Köse": { "Erkek": "KÖSE", "Kız": "KELKİT KIZ" },
+            "Torul": { "Erkek": "GÜMÜŞHANE", "Kız": "GÜMÜŞHANE KIZ" },
+            // Bayburt
+            "Bayburt Merkez": { "Erkek": "MURADİYE-2", "Kız": "MÜŞERREF OZULU" },
+            "Aydıntepe": { "Erkek": "AYDINTEPE", "Kız": "MÜŞERREF OZULU" },
+            "Demirözü": { "Erkek": "MURADİYE-2", "Kız": "MÜŞERREF OZULU" }
+        };
+
+        // İl → Mıntıka eşlemesi (otomatik mintika seçimi için)
+        const ilToMintika = {
+            "Trabzon": "TRABZON",
+            "Giresun": "GİRESUN",
+            "Gümüşhane": "GÜMÜŞHANE-BAYBURT",
+            "Bayburt": "GÜMÜŞHANE-BAYBURT"
+        };
+
+        function updateKurumlar() {
+            const cinsiyet = cinsiyetSelect.value;
+            const mintika = mintikaSelect.value;
+
+            // Listeyi sıfırla
+            kurumSelect.innerHTML = '<option value="" selected disabled>- Seçiniz -</option>';
+
+            if (cinsiyet && mintika && kurumData[cinsiyet] && kurumData[cinsiyet][mintika]) {
+                const kurumlar = kurumData[cinsiyet][mintika];
+                kurumlar.forEach(kurum => {
+                    const opt = document.createElement('option');
+                    opt.value = kurum;
+                    opt.textContent = kurum;
+                    kurumSelect.appendChild(opt);
+                });
+                kurumSelect.disabled = false;
+                // Kurumlar dolunca en yakını otomatik seç
+                tryAutoSelectKurum();
+            } else {
+                kurumSelect.innerHTML = '<option value="" selected disabled>- Önce Cinsiyet ve Mıntıka Seçin -</option>';
+                kurumSelect.disabled = true;
+            }
+        }
+
+        // Mahalle → En Yakın Kurum (mahalleleri fazla ilçeler için)
+        const yakinKurumByMahalle = {
+            // ===== Ortahisar Mahalleleri =====
+            "1 Nolu Beşirli": { "Erkek": "BAŞDURAK", "Kız": "FERHAN SULTAN" },
+            "2 Nolu Beşirli": { "Erkek": "BAŞDURAK", "Kız": "FERHAN SULTAN" },
+            "1 Nolu Erdoğdu": { "Erkek": "ERDOĞDU PROJE", "Kız": "FERHAN SULTAN" },
+            "2 Nolu Erdoğdu": { "Erkek": "ERDOĞDU PROJE", "Kız": "FERHAN SULTAN" },
+            "3 Nolu Erdoğdu": { "Erkek": "ERDOĞDU PROJE", "Kız": "FERHAN SULTAN" },
+            "Kalkınma": { "Erkek": "KALKINMA PROJE", "Kız": "FERHAN SULTAN" },
+            "Pelitli": { "Erkek": "PELİTLİ", "Kız": "FERHAN SULTAN" },
+            "Bahçecik": { "Erkek": "BAHÇECİK ENDERUN", "Kız": "FERHAN SULTAN" },
+            "Yalıncak": { "Erkek": "YALINCAK", "Kız": "HAFİZE SULTAN" },
+            "Çukurçayır": { "Erkek": "ÇAĞLAYAN", "Kız": "FERHAN SULTAN" },
+            "Gülbaharhatun": { "Erkek": "FATİH EV", "Kız": "FERHAN SULTAN" },
+            "Çarşı": { "Erkek": "ORTAHİSAR", "Kız": "FERHAN SULTAN" },
+            "Cumhuriyet": { "Erkek": "ORTAHİSAR", "Kız": "FERHAN SULTAN" },
+            "İskenderpaşa": { "Erkek": "ORTAHİSAR", "Kız": "FERHAN SULTAN" },
+            "Kemerkaya": { "Erkek": "ORTAHİSAR", "Kız": "FERHAN SULTAN" },
+            "Konaklar": { "Erkek": "ORTAHİSAR", "Kız": "FERHAN SULTAN" },
+            "Boztepe": { "Erkek": "ORTAHİSAR", "Kız": "FERHAN SULTAN" },
+            "Aydınlıkevler": { "Erkek": "ORTAHİSAR", "Kız": "FERHAN SULTAN" },
+            "Üniversite": { "Erkek": "ERDOĞDU PROJE", "Kız": "FERHAN SULTAN" },
+            "Yenimahalle": { "Erkek": "ORTAHİSAR", "Kız": "FERHAN SULTAN" },
+            "Yenicuma": { "Erkek": "ORTAHİSAR", "Kız": "FERHAN SULTAN" },
+            "Yeşilova": { "Erkek": "ORTAHİSAR", "Kız": "FERHAN SULTAN" },
+            // ===== Akçaabat Mahalleleri =====
+            "Söğütlü": { "Erkek": "YILDIZLI", "Kız": "AKÇAABAT KIZ" },
+            "Yıldızlı": { "Erkek": "YILDIZLI", "Kız": "AKÇAABAT KIZ" },
+            "Yaylacık": { "Erkek": "AKÇAABAT PROJE", "Kız": "AKÇAABAT KIZ" },
+            "Mersin": { "Erkek": "AKÇAABAT PROJE", "Kız": "AKÇAABAT KIZ" },
+            "Işıklar": { "Erkek": "AKÇAABAT PROJE", "Kız": "AKÇAABAT KIZ" },
+            "Adacık": { "Erkek": "AKÇAABAT PROJE", "Kız": "AKÇAABAT KIZ" },
+            "Kavaklı": { "Erkek": "AKÇAABAT PROJE", "Kız": "AKÇAABAT KIZ" },
+            "Orta Mahalle": { "Erkek": "AKÇAABAT PROJE", "Kız": "AKÇAABAT KIZ" },
+            // ===== Of Mahalleleri =====
+            "Sulaklı": { "Erkek": "OF", "Kız": "OF KIZ" },
+            "Eskipazar": { "Erkek": "OF", "Kız": "OF KIZ" },
+            "Kıyıcık": { "Erkek": "HAYRAT", "Kız": "OF KIZ" }
+        };
+
+        // İlçe/mahalle bazında en yakın kurumu otomatik seç
+        function tryAutoSelectKurum() {
+            const ilce = document.getElementById('ilceSelect').value;
+            const mahalle = document.getElementById('mahalleSelect').value;
+            const cinsiyet = cinsiyetSelect.value;
+            if (!cinsiyet) return;
+
+            // 1) Önce mahalle bazında ara
+            if (mahalle && yakinKurumByMahalle[mahalle] && yakinKurumByMahalle[mahalle][cinsiyet]) {
+                kurumSelect.value = yakinKurumByMahalle[mahalle][cinsiyet];
+                return;
+            }
+            // 2) Yoksa ilçe bazında ara
+            if (ilce && yakinKurumData[ilce] && yakinKurumData[ilce][cinsiyet]) {
+                kurumSelect.value = yakinKurumData[ilce][cinsiyet];
+            }
+        }
+
+        // Değişimleri dinle
+        cinsiyetSelect.addEventListener('change', updateKurumlar);
+        mintikaSelect.addEventListener('change', updateKurumlar);
+    </script>
+
+    <!-- Dinamik İl > İlçe > Mahalle Filtreleme Sistemi -->
+    <script>
+        const adresData = {
+            "Trabzon": {
+                "Ortahisar": [
+                    "1 Nolu Beşirli", "2 Nolu Beşirli", "1 Nolu Erdoğdu", "2 Nolu Erdoğdu", "3 Nolu Erdoğdu",
+                    "Aydınlıkevler", "Boztepe", "Çukurçayır", "Kalkınma", "Konaklar", "Pelitli", "Üniversite",
+                    "Bahçecik", "Yenimahalle", "İskenderpaşa", "Cumhuriyet", "Yalıncak", "Yeşilova", "Yenicuma", "Kemerkaya", "Gülbaharhatun", "Çarşı"
+                ],
+                "Akçaabat": [
+                    "Söğütlü", "Yıldızlı", "Yaylacık", "Mersin", "Işıklar", "Adacık", "Kavaklı", "Orta Mahalle"
+                ],
+                "Yomra": ["Merkez", "Kaşüstü"],
+                "Arsin": ["Merkez", "Güzelyalı", "Yalı", "Yeşilce", "Fatih", "Cumhuriyet", "Kendirlik", "Yanbolu"],
+                "Araklı": ["Merkez", "Hürriyet"],
+                "Of": ["Merkez", "Sulaklı", "Cumhuriyet", "Eskipazar", "Kıyıcık"],
+                "Sürmene": ["Merkez - Çarşı", "Çamburnu", "Yemişli"],
+                "Vakfıkebir": ["Merkez"],
+                "Beşikdüzü": ["Merkez"],
+                "Maçka": ["Merkez"],
+                "Çaykara": ["Merkez"],
+                "Tonya": ["Merkez"],
+                "Çarşıbaşı": ["Merkez"],
+                "Şalpazarı": ["Merkez"],
+                "Düzköy": ["Merkez"],
+                "Hayrat": ["Merkez"]
+            },
+            "Giresun": {
+                "Giresun Merkez": [
+                    "Merkez", "Aksu", "Boztekke", "Çıtlakkale", "Erikliman", "Fevzi Çakmak",
+                    "Gemilerçekeği", "Güre", "Hacıhüseyin", "Hacısiyam", "Kavaklar",
+                    "Nizamiye", "Osmaniye", "Seldeğirmeni", "Teyyaredüzü", "Yalı"
+                ],
+                "Bulancak": ["Merkez"],
+                "Görele": ["Merkez"],
+                "Tirebolu": ["Merkez"],
+                "Espiye": ["Merkez"],
+                "Eynesil": ["Merkez"],
+                "Keşap": ["Merkez"],
+                "Dereli": ["Merkez"],
+                "Yağlıdere": ["Merkez"],
+                "Piraziz": ["Merkez"],
+                "Şebinkarahisar": ["Merkez"],
+                "Alucra": ["Merkez"],
+                "Çamoluk": ["Merkez"],
+                "Doğankent": ["Merkez"],
+                "Güce": ["Merkez"],
+                "Çanakçı": ["Merkez"]
+            },
+            "Gümüşhane": {
+                "Gümüşhane Merkez": ["Merkez"],
+                "Kelkit": ["Merkez"],
+                "Şiran": ["Merkez"],
+                "Kürtün": ["Merkez"],
+                "Köse": ["Merkez"],
+                "Torul": ["Merkez"]
+            },
+            "Bayburt": {
+                "Bayburt Merkez": ["Merkez"],
+                "Aydıntepe": ["Merkez"],
+                "Demirözü": ["Merkez"]
+            }
+        };
+
+        const ilSelect = document.getElementById('ilSelect');
+        const ilceSelect = document.getElementById('ilceSelect');
+        const mahalleSelect = document.getElementById('mahalleSelect');
+
+        // ---- Yardımcı: Mahalle kutusunu doldur ----
+        function updateMahalleler(ilce) {
+            const il = ilSelect.value;
+            mahalleSelect.innerHTML = '<option value="" selected disabled>- Mahalle Seçiniz -</option>';
+
+            if (il && ilce && adresData[il] && adresData[il][ilce]) {
+                const mahalleler = adresData[il][ilce];
+                mahalleler.forEach(m => {
+                    const opt = document.createElement('option');
+                    opt.value = m;
+                    opt.textContent = m;
+                    mahalleSelect.appendChild(opt);
+                });
+                // Yalnızca Merkez varsa: otomatik seç ve kilitle
+                if (mahalleler.length === 1 && mahalleler[0] === "Merkez") {
+                    mahalleSelect.value = "Merkez";
+                    mahalleSelect.disabled = true;
+                } else {
+                    mahalleSelect.disabled = false;
+                }
+            } else {
+                mahalleSelect.innerHTML = '<option value="" selected disabled>- Önce İlçe Seçin -</option>';
+                mahalleSelect.disabled = true;
+            }
+        }
+
+        // ---- İl değişince ilçeleri doldur + Mintikayı otomatik ayarla ----
+        ilSelect.addEventListener('change', function () {
+            const secilenIl = this.value;
+
+            // İlçe ve mahalle kutularını sıfırla
+            ilceSelect.innerHTML = '<option value="" selected disabled>- İlçe Seçiniz -</option>';
+            ilceSelect.disabled = true;
+            mahalleSelect.innerHTML = '<option value="" selected disabled>- Önce İlçe Seçin -</option>';
+            mahalleSelect.disabled = true;
+
+            // Mintikayı otomatik seç ve kurumları güncelle
+            const otomatikMintika = ilToMintika[secilenIl];
+            if (otomatikMintika) {
+                mintikaSelect.value = otomatikMintika;
+                updateKurumlar();
+            }
+
+            if (secilenIl && adresData[secilenIl]) {
+                Object.keys(adresData[secilenIl]).forEach(ilce => {
+                    const opt = document.createElement('option');
+                    opt.value = ilce;
+                    opt.textContent = ilce;
+                    ilceSelect.appendChild(opt);
+                });
+                ilceSelect.disabled = false;
+            }
+        });
+
+        // ---- İlçe değişince mahalleler + en yakın kurum ----
+        ilceSelect.addEventListener('change', function () {
+            updateMahalleler(this.value);
+            tryAutoSelectKurum();
+        });
+
+        // ---- Form sıfırlandığında her şeyi kilitle ----
+        document.getElementById('googleSheetForm').addEventListener('reset', function () {
+            ilceSelect.innerHTML = '<option value="" selected disabled>- Önce İl Seçin -</option>';
+            ilceSelect.disabled = true;
+            mahalleSelect.innerHTML = '<option value="" selected disabled>- Önce İlçe Seçin -</option>';
+            mahalleSelect.disabled = true;
+        });
+
+        // ---- Mahalle seçilince en yakın kurumu güncelle ----
+        mahalleSelect.addEventListener('change', function () {
+            tryAutoSelectKurum();
+        });
+
+        // ---- Sınıf seçimine göre "Alanı" alanını göster/gizle ----
+        const sinifSelect = document.getElementById('sinifSelect');
+        const alanContainer = document.getElementById('alanContainer');
+        const alanSelect = document.getElementById('alanSelect');
+
+        if (sinifSelect) {
+            sinifSelect.addEventListener('change', function () {
+                if (this.value === '11') {
+                    alanContainer.style.display = 'block';
+                    alanSelect.setAttribute('required', 'required');
+                } else {
+                    alanContainer.style.display = 'none';
+                    alanSelect.removeAttribute('required');
+                    alanSelect.value = ''; // Farklı sınıf seçildiğinde alanı temizle
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
