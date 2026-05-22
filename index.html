@@ -1379,7 +1379,8 @@
                 }
 
                 const ext = extensions[extIndex];
-                const imgName = `kurum-${index}.${ext}`;
+                // GitHub sunucuları büyük-küçük harfe duyarlı olduğu için dosya adıyla BİREBİR aynı olmalı
+                const imgName = `KURUM-${index}.${ext}`;
                 const img = new Image();
                 img.src = imgName;
 
