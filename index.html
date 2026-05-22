@@ -604,7 +604,7 @@
     </nav>
 
     <!-- Sağdan Açılan Yan Panel (Offcanvas) -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 280px; max-width: 60vw;">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 380px; max-width: 85vw;">
         <div class="offcanvas-header border-bottom px-4 py-3">
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel"
                 style="font-weight: 800; color: var(--primary-color);">
@@ -612,72 +612,100 @@
             </h5>
             <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Kapat"></button>
         </div>
-        <div class="offcanvas-body d-flex flex-column px-4 pb-4">
+        <div class="offcanvas-body d-flex flex-column px-3 pb-4">
+
+            <style>
+                .premium-menu .accordion-button {
+                    font-size: 1.05rem;
+                    font-weight: 700;
+                    color: #1e293b;
+                    padding: 1.1rem 1rem;
+                    background-color: transparent !important;
+                    transition: all 0.2s ease;
+                }
+                .premium-menu .accordion-button:not(.collapsed) {
+                    color: var(--primary-color);
+                    box-shadow: none;
+                    background-color: transparent !important;
+                }
+                .premium-menu .accordion-button:hover {
+                    background-color: rgba(0,0,0,0.02) !important;
+                }
+                .premium-menu .accordion-body {
+                    padding: 0.5rem 1.25rem 1.25rem 1.25rem;
+                    color: #475569;
+                    background-color: transparent !important;
+                }
+                .premium-menu-link {
+                    display: block;
+                    padding: 1.1rem 1.25rem;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    color: #1e293b;
+                    text-decoration: none;
+                    transition: all 0.2s ease;
+                }
+                .premium-menu-link:hover {
+                    color: var(--primary-color);
+                    background-color: rgba(0,0,0,0.02);
+                }
+            </style>
 
             <!-- Üstte Menü Linki -->
-            <ul class="navbar-nav flex-grow-1 pt-2">
+            <ul class="navbar-nav flex-grow-1 pt-2 premium-menu">
                 <!-- Kurumumuz -->
-                <li class="nav-item mb-3">
-                    <a class="nav-link px-3 py-2 d-flex align-items-center" href="#kurum-slider" style="font-weight: 700; color: var(--secondary-color); font-size: 1rem; border-radius: 8px; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#f8fafc'" onmouseout="this.style.backgroundColor='transparent'">
-                        <i class="far fa-images me-2" style="font-size: 1.1rem; opacity: 0.8;"></i> Kurumumuz
+                <li class="nav-item border-bottom">
+                    <a class="premium-menu-link d-flex align-items-center" href="#kurum-slider">
+                        <i class="far fa-images me-3" style="font-size: 1.1rem; opacity: 0.7;"></i> Kurumumuz
                     </a>
                 </li>
                 
                 <!-- Hakkımızda, Misyon, Vizyon Akordeonu -->
                 <li class="nav-item mb-4">
-                    <div class="accordion accordion-flush border rounded-3 overflow-hidden shadow-sm"
-                        id="aboutAccordion">
-                        <div class="accordion-item border-0">
+                    <div class="accordion accordion-flush" id="aboutAccordion">
+                        <div class="accordion-item border-0 border-bottom">
                             <h2 class="accordion-header" id="headingAbout">
                                 <button class="accordion-button collapsed shadow-none" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapseAbout" aria-expanded="false"
-                                    aria-controls="collapseAbout"
-                                    style="font-weight: 700; color: var(--secondary-color);">
-                                    Hakkımızda
+                                    aria-controls="collapseAbout">
+                                    <i class="far fa-file-alt me-3" style="font-size: 1.1rem; opacity: 0.7;"></i> Hakkımızda
                                 </button>
                             </h2>
                             <div id="collapseAbout" class="accordion-collapse collapse" aria-labelledby="headingAbout"
                                 data-bs-parent="#aboutAccordion">
-                                <div class="accordion-body"
-                                    style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background-color: #f8fafc;"
-                                    id="hakkimizda-text">
+                                <div class="accordion-body" style="font-size: 0.95rem; line-height: 1.6;" id="hakkimizda-text">
                                     <div class="spinner-border spinner-border-sm text-secondary" role="status"></div>
                                     Yükleniyor...
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item border-0 border-top">
+                        <div class="accordion-item border-0 border-bottom">
                             <h2 class="accordion-header" id="headingMission">
                                 <button class="accordion-button collapsed shadow-none" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapseMission" aria-expanded="false"
-                                    aria-controls="collapseMission"
-                                    style="font-weight: 700; color: var(--secondary-color);">
-                                    Misyonumuz
+                                    aria-controls="collapseMission">
+                                    <i class="far fa-compass me-3" style="font-size: 1.1rem; opacity: 0.7;"></i> Misyonumuz
                                 </button>
                             </h2>
                             <div id="collapseMission" class="accordion-collapse collapse"
                                 aria-labelledby="headingMission" data-bs-parent="#aboutAccordion">
-                                <div class="accordion-body"
-                                    style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background-color: #f8fafc;"
-                                    id="misyonumuz-text">
+                                <div class="accordion-body" style="font-size: 0.95rem; line-height: 1.6;" id="misyonumuz-text">
                                     <div class="spinner-border spinner-border-sm text-secondary" role="status"></div>
                                     Yükleniyor...
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item border-0 border-top">
+                        <div class="accordion-item border-0 border-bottom">
                             <h2 class="accordion-header" id="headingVision">
                                 <button class="accordion-button collapsed shadow-none" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapseVision" aria-expanded="false"
-                                    aria-controls="collapseVision" style="font-weight: 700; color: var(--secondary-color);">
-                                    Vizyonumuz
+                                    aria-controls="collapseVision">
+                                    <i class="far fa-eye me-3" style="font-size: 1.1rem; opacity: 0.7;"></i> Vizyonumuz
                                 </button>
                             </h2>
                             <div id="collapseVision" class="accordion-collapse collapse" aria-labelledby="headingVision"
                                 data-bs-parent="#aboutAccordion">
-                                <div class="accordion-body"
-                                    style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background-color: #f8fafc;"
-                                    id="vizyonumuz-text">
+                                <div class="accordion-body" style="font-size: 0.95rem; line-height: 1.6;" id="vizyonumuz-text">
                                     <div class="spinner-border spinner-border-sm text-secondary" role="status"></div>
                                     Yükleniyor...
                                 </div>
