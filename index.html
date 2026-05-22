@@ -596,77 +596,77 @@
             <button class="navbar-toggler border-0 shadow-none d-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
-            <!-- Sağdan Açılan Yan Panel (Offcanvas) -->
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header border-bottom px-4 py-3">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="font-weight: 800; color: var(--primary-color);">
-                        <img src="Logo.png" alt="Logo" height="40" class="me-2"> Menü
-                    </h5>
-                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Kapat"></button>
-                </div>
-                <div class="offcanvas-body d-flex flex-column px-4 pb-4">
-                    
-                    <!-- Üstte Menü Linki -->
-                    <ul class="navbar-nav flex-grow-1 pt-2">
-                        <!-- Hakkımızda, Misyon, Vizyon Akordeonu -->
-                        <li class="nav-item mb-4">
-                            <div class="accordion accordion-flush border rounded-3 overflow-hidden shadow-sm" id="aboutAccordion">
-                                <div class="accordion-item border-0">
-                                    <h2 class="accordion-header" id="headingAbout">
-                                        <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAbout" aria-expanded="false" aria-controls="collapseAbout" style="font-weight: 800; color: var(--primary-color);">
-                                            <i class="fas fa-info-circle me-2"></i> Hakkımızda
-                                        </button>
-                                    </h2>
-                                    <div id="collapseAbout" class="accordion-collapse collapse" aria-labelledby="headingAbout" data-bs-parent="#aboutAccordion">
-                                        <div class="accordion-body" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background-color: var(--primary-bg);" id="hakkimizda-text">
-                                            <div class="spinner-border spinner-border-sm text-primary" role="status"></div> Yükleniyor...
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item border-0 border-top">
-                                    <h2 class="accordion-header" id="headingMission">
-                                        <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMission" aria-expanded="false" aria-controls="collapseMission" style="font-weight: 800; color: var(--accent-color);">
-                                            <i class="fas fa-bullseye me-2"></i> Misyonumuz
-                                        </button>
-                                    </h2>
-                                    <div id="collapseMission" class="accordion-collapse collapse" aria-labelledby="headingMission" data-bs-parent="#aboutAccordion">
-                                        <div class="accordion-body" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background-color: #fff7ed;" id="misyonumuz-text">
-                                            <div class="spinner-border spinner-border-sm text-accent" role="status"></div> Yükleniyor...
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item border-0 border-top">
-                                    <h2 class="accordion-header" id="headingVision">
-                                        <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVision" aria-expanded="false" aria-controls="collapseVision" style="font-weight: 800; color: #10b981;">
-                                            <i class="fas fa-eye me-2"></i> Vizyonumuz
-                                        </button>
-                                    </h2>
-                                    <div id="collapseVision" class="accordion-collapse collapse" aria-labelledby="headingVision" data-bs-parent="#aboutAccordion">
-                                        <div class="accordion-body" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background-color: #ecfdf5;" id="vizyonumuz-text">
-                                            <div class="spinner-border spinner-border-sm text-success" role="status"></div> Yükleniyor...
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    
-                    <!-- Altta İletişim Butonları -->
-                    <div class="d-flex flex-column gap-3 mt-auto pt-4 border-top">
-                        <a class="btn btn-davet text-center py-3"
-                            href="https://wa.me/905393495532?text=Enderun%20Hakk%C4%B1nda%20bilgi%20Almak%20%C4%B0stiyorum"
-                            target="_blank">
-                            <i class="fab fa-whatsapp me-2 fs-5"></i>Detaylı Bilgi İçin Bize Ulaşınız
-                        </a>
-                        <a class="btn btn-basvur-outline text-center m-0 py-3" href="#basvuru-alani">
-                            HEMEN BAŞVUR
-                        </a>
-                    </div>
-                </div>
-            </div>
         </div>
     </nav>
+
+    <!-- Sağdan Açılan Yan Panel (Offcanvas) -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header border-bottom px-4 py-3">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="font-weight: 800; color: var(--primary-color);">
+                <img src="Logo.png" alt="Logo" height="40" class="me-2"> Menü
+            </h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Kapat"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column px-4 pb-4">
+            
+            <!-- Üstte Menü Linki -->
+            <ul class="navbar-nav flex-grow-1 pt-2">
+                <!-- Hakkımızda, Misyon, Vizyon Akordeonu -->
+                <li class="nav-item mb-4">
+                    <div class="accordion accordion-flush border rounded-3 overflow-hidden shadow-sm" id="aboutAccordion">
+                        <div class="accordion-item border-0">
+                            <h2 class="accordion-header" id="headingAbout">
+                                <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAbout" aria-expanded="false" aria-controls="collapseAbout" style="font-weight: 800; color: var(--primary-color);">
+                                    <i class="fas fa-info-circle me-2"></i> Hakkımızda
+                                </button>
+                            </h2>
+                            <div id="collapseAbout" class="accordion-collapse collapse" aria-labelledby="headingAbout" data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background-color: var(--primary-bg);" id="hakkimizda-text">
+                                    <div class="spinner-border spinner-border-sm text-primary" role="status"></div> Yükleniyor...
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 border-top">
+                            <h2 class="accordion-header" id="headingMission">
+                                <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMission" aria-expanded="false" aria-controls="collapseMission" style="font-weight: 800; color: var(--accent-color);">
+                                    <i class="fas fa-bullseye me-2"></i> Misyonumuz
+                                </button>
+                            </h2>
+                            <div id="collapseMission" class="accordion-collapse collapse" aria-labelledby="headingMission" data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background-color: #fff7ed;" id="misyonumuz-text">
+                                    <div class="spinner-border spinner-border-sm text-accent" role="status"></div> Yükleniyor...
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 border-top">
+                            <h2 class="accordion-header" id="headingVision">
+                                <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVision" aria-expanded="false" aria-controls="collapseVision" style="font-weight: 800; color: #10b981;">
+                                    <i class="fas fa-eye me-2"></i> Vizyonumuz
+                                </button>
+                            </h2>
+                            <div id="collapseVision" class="accordion-collapse collapse" aria-labelledby="headingVision" data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background-color: #ecfdf5;" id="vizyonumuz-text">
+                                    <div class="spinner-border spinner-border-sm text-success" role="status"></div> Yükleniyor...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <!-- Altta İletişim Butonları -->
+            <div class="d-flex flex-column gap-3 mt-auto pt-4 border-top">
+                <a class="btn btn-davet text-center py-3"
+                    href="https://wa.me/905393495532?text=Enderun%20Hakk%C4%B1nda%20bilgi%20Almak%20%C4%B0stiyorum"
+                    target="_blank">
+                    <i class="fab fa-whatsapp me-2 fs-5"></i>Detaylı Bilgi İçin Bize Ulaşınız
+                </a>
+                <a class="btn btn-basvur-outline text-center m-0 py-3" href="#basvuru-alani">
+                    HEMEN BAŞVUR
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- HERO SECTION -->
     <section class="hero-section">
