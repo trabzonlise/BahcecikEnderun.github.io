@@ -743,10 +743,51 @@
                 <!-- Sağ Taraf Yazılar -->
                 <div class="col-lg-6 text-lg-start text-center pb-lg-5 mb-lg-5">
                     <div class="hero-subtitle">Enderun'lu Olma Yolunda İlk Adım</div>
-                    <h1 class="hero-title">Bahçecik Enderun Lise<br><span>Online Başvuru</span></h1>
-                    <div class="hero-classes">Liseli öğrenciler için sınırlı kontenjan ile açılan
-                        bu sürece online başvuru yaparak dahil ol! Enderun'lu olmak için yarışa katıl.</div>
-                    <a href="#basvuru-alani" class="btn-hero mt-3">Hemen Başvur</a>
+                    <h1 class="hero-title" style="margin-bottom: 20px;">Bahçecik Enderun Lise<br><span>Online Başvuru</span></h1>
+                    
+                    <div class="hero-classes mb-3" style="font-size: 1.05rem; line-height: 1.6; color: var(--text-main); font-weight: 500; background: rgba(255,255,255,0.7); padding: 15px; border-radius: 10px; border-left: 4px solid var(--primary-color);">
+                        Bahçecik Enderun Lise ailesine hoş geldiniz! Bilgiyi keşfeden, vizyon sahibi ve değerlerine sadık bir nesil yetiştirmek amacıyla yola çıkan bir eğitim kurumu olarak hizmetinizdeyiz. Size sunduğumuz kaliteli eğitimle potansiyelinizi en üst seviyeye taşıyacak bir sisteme davet ediyoruz.
+                    </div>
+
+                    <!-- Accordion -->
+                    <div class="accordion accordion-flush text-start shadow-sm rounded-3" id="heroAccordion" style="background: white; border: 1px solid #e2e8f0; overflow: hidden; margin-top: 15px;">
+                        <div class="accordion-item border-0 border-bottom">
+                            <h2 class="accordion-header" id="heroHeadingAbout">
+                                <button class="accordion-button collapsed shadow-none py-3" type="button" data-bs-toggle="collapse" data-bs-target="#heroCollapseAbout" style="font-weight: 700; color: var(--secondary-color); font-size: 1.05rem;">
+                                    <i class="far fa-file-alt me-3 text-primary"></i> Hakkımızda
+                                </button>
+                            </h2>
+                            <div id="heroCollapseAbout" class="accordion-collapse collapse" data-bs-parent="#heroAccordion">
+                                <div class="accordion-body" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background: #f8fafc;" id="hero-hakkimizda-text">
+                                    <div class="spinner-border spinner-border-sm text-secondary" role="status"></div> Yükleniyor...
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 border-bottom">
+                            <h2 class="accordion-header" id="heroHeadingMission">
+                                <button class="accordion-button collapsed shadow-none py-3" type="button" data-bs-toggle="collapse" data-bs-target="#heroCollapseMission" style="font-weight: 700; color: var(--secondary-color); font-size: 1.05rem;">
+                                    <i class="far fa-compass me-3 text-primary"></i> Misyonumuz
+                                </button>
+                            </h2>
+                            <div id="heroCollapseMission" class="accordion-collapse collapse" data-bs-parent="#heroAccordion">
+                                <div class="accordion-body" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background: #f8fafc;" id="hero-misyonumuz-text">
+                                    <div class="spinner-border spinner-border-sm text-secondary" role="status"></div> Yükleniyor...
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0">
+                            <h2 class="accordion-header" id="heroHeadingVision">
+                                <button class="accordion-button collapsed shadow-none py-3" type="button" data-bs-toggle="collapse" data-bs-target="#heroCollapseVision" style="font-weight: 700; color: var(--secondary-color); font-size: 1.05rem;">
+                                    <i class="far fa-eye me-3 text-primary"></i> Vizyonumuz
+                                </button>
+                            </h2>
+                            <div id="heroCollapseVision" class="accordion-collapse collapse" data-bs-parent="#heroAccordion">
+                                <div class="accordion-body" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background: #f8fafc;" id="hero-vizyonumuz-text">
+                                    <div class="spinner-border spinner-border-sm text-secondary" role="status"></div> Yükleniyor...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -965,6 +1006,7 @@
             </div>
         </div>
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -1454,17 +1496,28 @@
                     })
                     .then(text => {
                         const trimmedText = text.trim();
-                        // Eğer içi boşsa
+                        let htmlContent = "";
                         if (trimmedText === "") {
-                            document.getElementById(item.id).innerHTML = "<em>İçerik kısa süre içinde eklenecektir...</em>";
+                            htmlContent = "<em>İçerik kısa süre içinde eklenecektir...</em>";
                         } else {
-                            // Satır atlamalarını (Enter) <br> etiketine dönüştür
-                            document.getElementById(item.id).innerHTML = trimmedText.replace(/\n/g, '<br>');
+                            htmlContent = trimmedText.replace(/\n/g, '<br>');
                         }
+                        
+                        // Yan menüye ekle
+                        const sidebarEl = document.getElementById(item.id);
+                        if(sidebarEl) sidebarEl.innerHTML = htmlContent;
+                        
+                        // Ana sayfa Hero bölümüne ekle
+                        const heroEl = document.getElementById('hero-' + item.id);
+                        if(heroEl) heroEl.innerHTML = htmlContent;
                     })
                     .catch(error => {
                         console.error(item.url + " yüklenirken hata:", error);
-                        document.getElementById(item.id).innerHTML = "<em>İçerik yüklenemedi.</em>";
+                        const errHtml = "<em>İçerik yüklenemedi.</em>";
+                        const sidebarEl = document.getElementById(item.id);
+                        if(sidebarEl) sidebarEl.innerHTML = errHtml;
+                        const heroEl = document.getElementById('hero-' + item.id);
+                        if(heroEl) heroEl.innerHTML = errHtml;
                     });
             });
         });
