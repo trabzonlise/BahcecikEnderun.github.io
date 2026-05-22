@@ -844,7 +844,7 @@
         <div class="container">
             <div class="form-container">
                 <div class="form-header">
-                    <h2>Sınav Başvuru Formu</h2>
+                    <h2>Ön Başvuru Formu</h2>
                     <p>Lütfen aşağıdaki bilgileri eksiksiz doldurarak başvurunuzu tamamlayın.</p>
                 </div>
 
@@ -858,7 +858,13 @@
                             <input type="text" name="adSoyad" class="form-control" placeholder="Örn: Hasan Yılmaz"
                                 required>
                         </div>
-
+                        <div class="col-md-6">
+                            <label class="form-label">TC Kimlik Numarası</label>
+                            <input type="text" name="tcKimlikNo" class="form-control" placeholder="Örn: 12345678901"
+                                required>
+                            <small class="text-muted d-block mt-1" style="font-weight: 500;">LGS Sonucu ve Okul puanı
+                                için gereklidir.</small>
+                        </div>
                         <div class="col-md-6">
                             <label class="form-label">Doğum Tarihi</label>
                             <input type="date" name="dogumTarihi" class="form-control" required>
@@ -918,7 +924,11 @@
                             <input type="tel" name="telefon" class="form-control" placeholder="5xx xxx xxxx"
                                 pattern="[0-9]{10}" required title="Başında 0 olmadan 10 hane girin">
                         </div>
-
+                        <div class="col-md-6">
+                            <label class="form-label">Veli Mesleği</label>
+                            <input type="text" name="veliMeslegi" class="form-control"
+                                placeholder="Örn: Öğretmen, Esnaf" required>
+                        </div>
                         <div class="col-md-6">
                             <label class="form-label">Ailenin Yaşadığı Yer</label>
                             <input type="text" name="aileninYasadigiYer" class="form-control"
