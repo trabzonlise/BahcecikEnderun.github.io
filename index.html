@@ -530,10 +530,6 @@
 
         /* ================= RESPONSIVE ================= */
         @media (max-width: 991px) {
-            .logo-box img {
-                height: 120px;
-            }
-
             .hero-title {
                 font-size: 3.2rem;
             }
@@ -589,17 +585,26 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar custom-navbar sticky-top">
-        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-            <a class="logo-box mb-2 mb-md-0" href="#">
+    <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
+        <div class="container">
+            <a class="logo-box" href="#">
                 <img src="Logo.png" alt="Bahçecik Enderun Logo"
                     onerror="this.src='https://via.placeholder.com/150x50?text=Logo'">
             </a>
-            <div class="d-flex align-items-center justify-content-center flex-wrap gap-2">
-                <a class="btn btn-davet"
-                    href="https://wa.me/905393495532?text=Enderun%20Hakk%C4%B1nda%20bilgi%20Almak%20%C4%B0stiyorum"
-                    target="_blank"><i class="fab fa-whatsapp me-1"></i> <span class="d-none d-sm-inline">Detaylı Bilgi İçin Bize Ulaşınız</span><span class="d-inline d-sm-none">İletişim</span></a>
-                <a class="btn btn-basvur-outline m-0" href="#basvuru-alani">HEMEN BAŞVUR</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-davet"
+                            href="https://wa.me/905393495532?text=Enderun%20Hakk%C4%B1nda%20bilgi%20Almak%20%C4%B0stiyorum"
+                            target="_blank"><i class="fab fa-whatsapp me-1"></i> Detaylı Bilgi İçin Bize Ulaşınız</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-basvur-outline" href="#basvuru-alani">HEMEN BAŞVUR</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
