@@ -585,26 +585,92 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
-        <div class="container">
+    <nav class="navbar custom-navbar sticky-top">
+        <div class="container d-flex justify-content-between align-items-center">
             <a class="logo-box" href="#">
                 <img src="Logo.png" alt="Bahçecik Enderun Logo"
                     onerror="this.src='https://via.placeholder.com/150x50?text=Logo'">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            
+            <!-- Offcanvas Tetikleyici Buton (Hamburger) -->
+            <button class="navbar-toggler border-0 shadow-none d-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-davet"
+            
+            <!-- Sağdan Açılan Yan Panel (Offcanvas) -->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header border-bottom px-4 py-3">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="font-weight: 800; color: var(--primary-color);">
+                        <img src="Logo.png" alt="Logo" height="40" class="me-2"> Menü
+                    </h5>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Kapat"></button>
+                </div>
+                <div class="offcanvas-body d-flex flex-column px-4 pb-4">
+                    
+                    <!-- Üstte Menü Linki -->
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item mb-4">
+                            <!-- Kurumumuz butonu -->
+                            <a class="nav-link d-flex align-items-center" href="#kurum-slider" style="font-weight: 800; font-size: 1.2rem; color: var(--secondary-color); transition: all 0.3s;">
+                                <i class="fas fa-images me-3 text-primary fs-4"></i> Kurumumuz
+                            </a>
+                        </li>
+
+                        <!-- Hakkımızda, Misyon, Vizyon Akordeonu -->
+                        <li class="nav-item mb-4">
+                            <div class="accordion accordion-flush border rounded-3 overflow-hidden shadow-sm" id="aboutAccordion">
+                                <div class="accordion-item border-0">
+                                    <h2 class="accordion-header" id="headingAbout">
+                                        <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAbout" aria-expanded="false" aria-controls="collapseAbout" style="font-weight: 800; color: var(--primary-color);">
+                                            <i class="fas fa-info-circle me-2"></i> Hakkımızda
+                                        </button>
+                                    </h2>
+                                    <div id="collapseAbout" class="accordion-collapse collapse" aria-labelledby="headingAbout" data-bs-parent="#aboutAccordion">
+                                        <div class="accordion-body" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background-color: var(--primary-bg);" id="hakkimizda-text">
+                                            <div class="spinner-border spinner-border-sm text-primary" role="status"></div> Yükleniyor...
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item border-0 border-top">
+                                    <h2 class="accordion-header" id="headingMission">
+                                        <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMission" aria-expanded="false" aria-controls="collapseMission" style="font-weight: 800; color: var(--accent-color);">
+                                            <i class="fas fa-bullseye me-2"></i> Misyonumuz
+                                        </button>
+                                    </h2>
+                                    <div id="collapseMission" class="accordion-collapse collapse" aria-labelledby="headingMission" data-bs-parent="#aboutAccordion">
+                                        <div class="accordion-body" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background-color: #fff7ed;" id="misyonumuz-text">
+                                            <div class="spinner-border spinner-border-sm text-accent" role="status"></div> Yükleniyor...
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item border-0 border-top">
+                                    <h2 class="accordion-header" id="headingVision">
+                                        <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVision" aria-expanded="false" aria-controls="collapseVision" style="font-weight: 800; color: #10b981;">
+                                            <i class="fas fa-eye me-2"></i> Vizyonumuz
+                                        </button>
+                                    </h2>
+                                    <div id="collapseVision" class="accordion-collapse collapse" aria-labelledby="headingVision" data-bs-parent="#aboutAccordion">
+                                        <div class="accordion-body" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background-color: #ecfdf5;" id="vizyonumuz-text">
+                                            <div class="spinner-border spinner-border-sm text-success" role="status"></div> Yükleniyor...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <!-- Altta İletişim Butonları -->
+                    <div class="d-flex flex-column gap-3 mt-auto pt-4 border-top">
+                        <a class="btn btn-davet text-center py-3"
                             href="https://wa.me/905393495532?text=Enderun%20Hakk%C4%B1nda%20bilgi%20Almak%20%C4%B0stiyorum"
-                            target="_blank"><i class="fab fa-whatsapp me-1"></i> Detaylı Bilgi İçin Bize Ulaşınız</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-basvur-outline" href="#basvuru-alani">HEMEN BAŞVUR</a>
-                    </li>
-                </ul>
+                            target="_blank">
+                            <i class="fab fa-whatsapp me-2 fs-5"></i>Detaylı Bilgi İçin Bize Ulaşınız
+                        </a>
+                        <a class="btn btn-basvur-outline text-center m-0 py-3" href="#basvuru-alani">
+                            HEMEN BAŞVUR
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -823,6 +889,20 @@
             </div>
         </div>
     </section>
+
+    <!-- Resim Büyütme Modalı -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content bg-transparent border-0">
+                <div class="modal-header border-0 pb-0 justify-content-end position-absolute top-0 end-0 z-3">
+                    <button type="button" class="btn-close btn-close-white bg-dark p-2 rounded-circle" data-bs-dismiss="modal" aria-label="Kapat" style="opacity: 0.8;"></button>
+                </div>
+                <div class="modal-body text-center p-0 position-relative">
+                    <img id="modalImage" src="" alt="Tam Ekran Görsel" style="max-width: 100%; max-height: 90vh; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); object-fit: contain;">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -1258,7 +1338,7 @@
                     const div = document.createElement('div');
                     div.className = `carousel-item ${foundCount === 0 ? 'active' : ''}`;
                     div.setAttribute('data-bs-interval', '3000'); 
-                    div.innerHTML = `<img src="${imgName}" class="d-block w-100" alt="Kurum Görseli ${index}">`;
+                    div.innerHTML = `<img src="${imgName}" class="d-block w-100" alt="Kurum Görseli ${index}" style="cursor: zoom-in;" onclick="openFullscreenImage('${imgName}')">`;
                     carouselInner.appendChild(div);
                     
                     foundCount++;
@@ -1275,6 +1355,55 @@
             
             // Döngüyü 1. resim ve 0. uzantı (jpg) ile başlat
             tryLoadImage(0);
+        });
+
+        // Resme tıklandığında tam ekran (modal) açma fonksiyonu
+        function openFullscreenImage(src) {
+            document.getElementById('modalImage').src = src;
+            var myModal = new bootstrap.Modal(document.getElementById('imageModal'));
+            myModal.show();
+        }
+
+        // Yan menüdeki linklere tıklanınca menünün otomatik kapanması
+        document.querySelectorAll('.offcanvas-body a:not([target="_blank"])').forEach(link => {
+            link.addEventListener('click', () => {
+                const offcanvasElement = document.getElementById('offcanvasNavbar');
+                const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasElement);
+                if (offcanvasInstance) {
+                    offcanvasInstance.hide();
+                }
+            });
+        });
+
+        // TXT Dosyalarından Metinleri Çekme İşlemi
+        document.addEventListener("DOMContentLoaded", function() {
+            const textFiles = [
+                { id: 'hakkimizda-text', url: 'Hakkımızda.txt' },
+                { id: 'misyonumuz-text', url: 'Misyonumuz.txt' },
+                { id: 'vizyonumuz-text', url: 'Vizyonumuz.txt' }
+            ];
+
+            textFiles.forEach(item => {
+                fetch(item.url)
+                    .then(response => {
+                        if (!response.ok) throw new Error("Dosya okunamadı: " + response.status);
+                        return response.text();
+                    })
+                    .then(text => {
+                        const trimmedText = text.trim();
+                        // Eğer içi boşsa veya varsayılan "aaaa" ise
+                        if(trimmedText === "" || trimmedText === "aaaa") {
+                            document.getElementById(item.id).innerHTML = "<em>İçerik kısa süre içinde eklenecektir...</em>";
+                        } else {
+                            // Satır atlamalarını (Enter) <br> etiketine dönüştür
+                            document.getElementById(item.id).innerHTML = trimmedText.replace(/\n/g, '<br>');
+                        }
+                    })
+                    .catch(error => {
+                        console.error(item.url + " yüklenirken hata:", error);
+                        document.getElementById(item.id).innerHTML = "<em>İçerik yüklenemedi.</em>";
+                    });
+            });
         });
     </script>
 </body>
