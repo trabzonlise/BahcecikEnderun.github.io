@@ -588,27 +588,27 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        
         .welcome-box-animated {
-            background: linear-gradient(-45deg, rgba(255,255,255,0.95), rgba(224,242,254,0.85), rgba(186,230,253,0.5), rgba(255,255,255,0.9));
-            background-size: 300% 300%;
-            animation: welcomeGradient 6s ease infinite;
-            border-left: 4px solid var(--primary-color) !important;
+            background: rgba(255, 255, 255, 0.95);
+            border-left: 5px solid #ea580c !important;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            color: var(--primary-color) !important;
+            font-weight: 600;
         }
 
         .cta-text-animated {
-            font-size: 1.25rem;
+            font-size: 1.45rem;
             font-weight: 900;
-            line-height: 1.5;
-            background: linear-gradient(45deg, var(--primary-color), #ea580c, #9333ea, var(--primary-color));
+            line-height: 1.4;
+            background: linear-gradient(45deg, #ff5722, #e65100, #d84315, #ff5722);
             background-size: 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: textGradient 5s ease infinite;
             display: inline-block;
             margin-top: 15px;
-            text-shadow: 0px 4px 15px rgba(30, 64, 175, 0.1);
+            filter: drop-shadow(0px 4px 6px rgba(230, 81, 0, 0.3));
+            letter-spacing: 0.5px;
         }
 
         @keyframes textGradient {
@@ -779,7 +779,7 @@
                     <div class="hero-subtitle">Enderun'lu Olma Yolunda İlk Adım</div>
                     <h1 class="hero-title" style="margin-bottom: 20px;">Bahçecik Enderun Lise<br><span>Online Başvuru</span></h1>
                     
-                    <div class="welcome-box welcome-box-animated mb-4" style="font-size: 1.05rem; line-height: 1.6; color: var(--text-main); font-weight: 500; padding: 15px; border-radius: 10px;">
+                    <div class="welcome-box welcome-box-animated mb-4" style="font-size: 1.1rem; line-height: 1.6; font-weight: 500; padding: 20px; border-radius: 12px;">
                         Bahçecik Enderun Lise ailesine hoş geldiniz! Bilgiyi keşfeden, vizyon sahibi ve değerlerine sadık bir nesil yetiştirmek amacıyla yola çıkan bir eğitim kurumu olarak hizmetinizdeyiz. Size sunduğumuz kaliteli eğitimle potansiyelinizi en üst seviyeye taşıyacak bir sisteme davet ediyoruz.
                     </div>
                     
